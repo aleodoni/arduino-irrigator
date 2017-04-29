@@ -1,3 +1,5 @@
+#include <RFTransmitter.h>
+
 #define pin_analog_sig A0
 #define pin_red_led 5
 #define pin_yellow_led 6
@@ -45,3 +47,5 @@ void turn_off_leds() {
 	digitalWrite(pin_yellow_led, LOW);
 	digitalWrite(pin_green_led, LOW);
 }
+
+
