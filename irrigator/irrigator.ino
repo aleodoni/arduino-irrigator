@@ -1,3 +1,5 @@
+#include <RFTransmitter.h>
+
 #define pin_analog_sig A0
 #define pin_red_led 5
 #define pin_yellow_led 6
