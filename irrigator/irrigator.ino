@@ -4,6 +4,8 @@
 #define pin_red_led 5
 #define pin_yellow_led 6
 #define pin_green_led 7
+#define pin_digital_relay 8
+#define irrigation_time 30000;
 
 int analog_val;
 
@@ -13,6 +15,8 @@ void setup() {
 	pinMode(pin_red_led, OUTPUT);
 	pinMode(pin_yellow_led, OUTPUT);
 	pinMode(pin_green_led, OUTPUT);
+
+	pinMode(pin_digital_relay, OUTPUT);
 }
 
 void loop() {
@@ -37,6 +41,7 @@ void loop() {
 		Serial.println("Status: Dry soil");
 		turn_off_leds();
 		digitalWrite(pin_red_led, HIGH);
+		irrigate();
 	}
 
 	delay(1000);
@@ -48,4 +53,8 @@ void turn_off_leds() {
 	digitalWrite(pin_green_led, LOW);
 }
 
-
+void irrigate() {
+	digitalWrite(pin_digital_relay, HIGH);
+	delay(irrigation_time);
+	digitalWrite(pin_digital_relay, LOW);
+}
